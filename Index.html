@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Список Енотов</title>
+  <style>
+    body {
+      color: rgb(50, 150, 200);
+    }
+  </style>
+</head>
+<body>
+
+<h2>Добавление енота</h2>
+
+<form id="addRaccoonForm">
+  <label for="name">Имя енота:</label>
+  <input type="text" id="name" name="name" required>
+  <h2 style="color:rgb(50,150,200);">Вес енота</h2>
+  <label for="weight">Вес енота (кг):</label>
+  <input type="number" id="weight" name="weight" required>
+
+  <label for="age">Возраст енота (года):</label>
+  <input type="number" id="age" name="age" required>
+
+  <button type="button" onclick="addRaccoon()">Добавить енота</button>
+</form>
+
+<div id="output"></div>
+
+<script>
+  var ENOTS = [];
+
+  function addRaccoon() {
+    var name = document.getElementById('name').value;
+    var weight = document.getElementById('weight').value;
+    var age = document.getElementById('age').value;
+
+    // Создаем объект енота
+    var raccoon = {
+      name: name,
+      weight: weight,
+      age: age
+    };
+
+    ENOTS.push(raccoon);
+
+    var outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = 'Вы добавили "' + raccoon.name + '", вес ' + raccoon.weight + ' кг, возраст ' + raccoon.age + ' года.';
+  }
+</script>
+
+</body>
+</html>
